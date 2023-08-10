@@ -1,0 +1,9 @@
+Question: Write a website that gets car type and returns a car from it.  
+ Notes: 
+• Car type can be electrical, 2 wheels or sport 
+• Each car type might have different parts 
+• You are free to make any assumption, for example about car parts but please mention it in your answer   
+• You will be assessed based on 
+• Code quality • Thinking process and logic
+• Software Design
+• It would be fine if you have a non-working application as our assessment is not about finishing but more on code itself 

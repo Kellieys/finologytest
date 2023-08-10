@@ -1,0 +1,7 @@
+Prerequisite:
+Ensure Node.js is installed
+
+How to run:
+1. Open CLI
+1. Run "npm install" in the extracted folder
+2. Run "npm start" to view

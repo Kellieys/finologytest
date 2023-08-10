@@ -1,0 +1,28 @@
+.vehicle-list {
+    width: 30rem;
+    max-width: 80%;
+    margin: auto;
+}
+  
+.vehicle-list h2 {
+    border-bottom: 3px solid #ccc;
+    padding-bottom: 1rem;
+}
+
+.detail {
+    white-space: pre-wrap;
+}
+
+.carListDiv {
+    display:flex;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+    width: 600px;
+}
+
+.textAreaDiv {
+    margin-left: 10%;
+    margin-top: 8%;
+}
+  
