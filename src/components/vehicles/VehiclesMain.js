@@ -24,7 +24,7 @@ const VehiclesMain = props => {
     const timer = setTimeout(() => {
       // assuming same key value passed: using es6 and filter can make this shorter and cleaner
       // however, if say the key value passed is different, switch case is better
-      const matchedCars = vehicles.filter(vehicle => vehicle[obj.filter] == obj.input)
+      const matchedCars = vehicles.filter(vehicle => vehicle[obj.filter].toString().toLowerCase() === obj.input.toString().toLowerCase())
       if(!matchedCars.length){
         // No car found
         setError("No car found, please try again...");
