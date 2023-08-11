@@ -42,7 +42,7 @@ export const vehicles = [
         {
             "id": 5,
             "carModel": "CX-5",
-            "brand": "Mazda ",
+            "brand": "Mazda",
             "feul": "Diesel",
             "category": "SUV",
             "tyre": 4,
