@@ -22,40 +22,18 @@ const VehiclesMain = props => {
     // setTimeout: to make it looks like loading
     // in real life it would be async code that is awaiting the real data from API to load
     const timer = setTimeout(() => {
-      // assuming same key value passed: using simple loop can make this shorter and cleaner
+      // assuming same key value passed: using es6 and filter can make this shorter and cleaner
       // however, if say the key value passed is different, switch case is better
-        switch (obj.filter) {
-          case 'carModel':
-              setCars(vehicles.filter(car => car.carModel == obj.input));
-            break;
-         case 'brand':
-              setCars(vehicles.filter(car => car.brand == obj.input));
-            break;
-         case 'feul':
-              setCars(vehicles.filter(car => car.feul == obj.input));
-            break;
-         case 'category':
-              setCars(vehicles.filter(car => car.category == obj.input));
-            break;
-         case 'tyre':
-              setCars(vehicles.filter(car => car.tyre == obj.input));
-            break;
-          case 'door':
-              setCars(vehicles.filter(car => car.door == obj.input));
-             break;
-          default:
-            throw new Error('Invalid');
-        }
-        setIsLoading(false);
-        // handle if the search is empty/no value
-        console.log(" length", vehicles.length)
-        if (vehicles.length == 0) {
-          console.log("vehicles length", vehicles.length)
-          setError("No car found, please try again...");
-        }
-        else {
-          setError(null)
-        }
+      const matchedCars = vehicles.filter(vehicle => vehicle[obj.filter] === obj.input)
+      if(!matchedCars.length){
+        // No car found
+        setError("No car found, please try again...");
+      }
+      else {
+        setError(null)
+      }
+      setCars(matchedCars)
+      setIsLoading(false);
     }, 1000); 
     return () => {
       clearTimeout(timer);
