@@ -26,6 +26,9 @@ const VehiclesForm = React.memo(props => {
       }
     };
   
+    // There's also better way to do it, e.g. multi-filter
+    // Enhancement can be done such as, multi-dropdown section, radio, checkbox, form validation
+    // Since time is limited, I would keep it simple by using 1 filter dropdown & user able to input the attributes they want
     return (
       <section className="vehicle-form">
         <Card>
