@@ -16,9 +16,34 @@ const VehiclesMain = props => {
   }, [cars]);
 
 
-  const findVehicleHandler = input => {
-    //setIsLoading(true);
-    console.log("findVehicleHandler",input)
+  const findVehicleHandler = obj => {
+    // obj = ({ filter: selectedFilter, input: userInput });
+    console.log("findVehicleHandler", obj)
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+        switch (obj.filter) {
+          case 'carModel':
+              setCars(vehicles.filter(car => car.carModel == obj.input));
+            break;
+         case 'brand':
+              setCars(vehicles.filter(car => car.brand == obj.input));
+            break;
+        //  case 'feul':
+        //     break;
+        //  case 'category':
+        //     break;
+        //  case 'tyre':
+        //     break;
+        //   case 'door':
+        //     break;
+          default:
+            throw new Error('Invalid');
+        }
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+      setIsLoading(false);
+    };
   };
 
     
