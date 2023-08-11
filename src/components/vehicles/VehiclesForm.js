@@ -9,10 +9,21 @@ const VehiclesForm = React.memo(props => {
 
     const [selectedFilter, setSelectedFilter] = useState('carModel'); // default filter is brand
     const [userInput, setUserInput] = useState('');
+    const [isInputEmpty, setIsInputEmpty] = useState(true);
   
     const submitHandler = event => {
       event.preventDefault();
       props.onFindVehicle({ filter: selectedFilter, input: userInput });
+    };
+    
+    const onChangeInputHandler = value => {
+      setUserInput(value)
+      if (value === "") {
+        setIsInputEmpty(true)
+      }
+      else {
+        setIsInputEmpty(false)
+      }
     };
   
     return (
@@ -42,12 +53,12 @@ const VehiclesForm = React.memo(props => {
                 id="input"
                 value={userInput}
                 onChange={event => {
-                    setUserInput(event.target.value);
+                  onChangeInputHandler(event.target.value);
                 }}
                 />
             </div>
             <div className="vehicle-form__actions">
-                <button type="submit">Find</button>
+                <button disabled={isInputEmpty} type="submit">Find</button>
                 {props.loading && <Loading />}
             </div>
           </form>
